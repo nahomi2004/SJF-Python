@@ -1,6 +1,7 @@
 import random
 import pandas as pd
 
+# Crear clase Proceso
 class Proceso:
     def __init__(self, id_proceso, tiempo_llegada, tiempo_ejecucion):
         self.id_proceso = id_proceso
@@ -11,6 +12,7 @@ class Proceso:
         self.tiempo_espera = 0
 
 def generar_procesos(num_procesos):
+    # Genera una lista de procesos con tiempos aleatorios de llegada y ejecución
     procesos = []
     for i in range(num_procesos):
         tiempo_llegada = random.randint(0, 10)
@@ -18,40 +20,57 @@ def generar_procesos(num_procesos):
         procesos.append(Proceso(i + 1, tiempo_llegada, tiempo_ejecucion))
     return procesos
 
-def planificar_sjf(procesos):
+def planificar_fifo(procesos):
+    # Planifica los procesos utilizando la política FIFO
     tiempo_actual = 0
-    procesos.sort(key=lambda x: (x.tiempo_llegada, x.tiempo_ejecucion))
-
     for proceso in procesos:
         if tiempo_actual < proceso.tiempo_llegada:
             tiempo_actual = proceso.tiempo_llegada
-
         proceso.inicio_ejecucion = tiempo_actual
         proceso.fin_ejecucion = tiempo_actual + proceso.tiempo_ejecucion
         proceso.tiempo_espera = proceso.inicio_ejecucion - proceso.tiempo_llegada
-
         tiempo_actual += proceso.tiempo_ejecucion
-
     return procesos
 
+def planificar_sjf(procesos):
+    # Planifica los procesos utilizando la política SJF con desempate FIFO
+    tiempo_actual = 0
+    procesos_ordenados = sorted(procesos, key=lambda x: (x.tiempo_llegada, x.tiempo_ejecucion))
+    procesos_planificados = []
+
+    while procesos_ordenados:
+        disponibles = [p for p in procesos_ordenados if p.tiempo_llegada <= tiempo_actual]
+        if not disponibles:
+            tiempo_actual += 1
+            continue
+        proceso_a_ejecutar = min(disponibles, key=lambda x: (x.tiempo_ejecucion, x.tiempo_llegada))
+        procesos_ordenados.remove(proceso_a_ejecutar)
+
+        proceso_a_ejecutar.inicio_ejecucion = max(tiempo_actual, proceso_a_ejecutar.tiempo_llegada)
+        proceso_a_ejecutar.fin_ejecucion = proceso_a_ejecutar.inicio_ejecucion + proceso_a_ejecutar.tiempo_ejecucion
+        proceso_a_ejecutar.tiempo_espera = proceso_a_ejecutar.inicio_ejecucion - proceso_a_ejecutar.tiempo_llegada
+        tiempo_actual = proceso_a_ejecutar.fin_ejecucion
+
+        procesos_planificados.append(proceso_a_ejecutar)
+
+    return procesos_planificados
+
 def mostrar_resultados(procesos):
+    # Genera un DataFrame con los resultados y calcula métricas promedio.
     resultados = []
     for p in procesos:
         resultados.append({
-            "ID": p.id_proceso,
+            "ID Proceso": p.id_proceso,
             "Tiempo de Llegada": p.tiempo_llegada,
             "Tiempo de Ejecución": p.tiempo_ejecucion,
             "Inicio de Ejecución": p.inicio_ejecucion,
-            "Fin de Ejecución": p.fin_ejecucion,
+            "Finalización": p.fin_ejecucion,
             "Tiempo de Espera": p.tiempo_espera,
+            "Tiempo en el Sistema": p.fin_ejecucion - p.tiempo_llegada,
         })
 
     df_resultados = pd.DataFrame(resultados)
-    print(df_resultados)
-    print(f"Tiempo de Espera Promedio: {df_resultados['Tiempo de Espera'].mean()}")
+    promedio_espera = df_resultados["Tiempo de Espera"].mean()
+    promedio_tiempo_sistema = df_resultados["Tiempo en el Sistema"].mean()
 
-# Ejemplo de uso
-num_procesos = 5
-procesos_generados = generar_procesos(num_procesos)
-procesos_planificados = planificar_sjf(procesos_generados)
-mostrar_resultados(procesos_planificados)
+    return df_resultados, promedio_espera, promedio_tiempo_sistema
