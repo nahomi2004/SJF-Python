@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\nahom\\Downloads\\SJF-Python\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nahom\\Downloads\\SJF-Python\\SJFCode\\SJFChatGPT\\Diagrama_Flujo_BackendFrontend||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SJFCode\\SJFChatGPT\\Diagrama_Flujo_BackendFrontend||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nahom\\Downloads\\SJF-Python\\SJFCode\\SJFPerplexity\\Backend.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SJFCode\\SJFPerplexity\\Backend.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Diagrama_Flujo_BackendFrontend",
+              "DocumentMoniker": "C:\\Users\\nahom\\Downloads\\SJF-Python\\SJFCode\\SJFChatGPT\\Diagrama_Flujo_BackendFrontend",
+              "RelativeDocumentMoniker": "SJFCode\\SJFChatGPT\\Diagrama_Flujo_BackendFrontend",
+              "ToolTip": "C:\\Users\\nahom\\Downloads\\SJF-Python\\SJFCode\\SJFChatGPT\\Diagrama_Flujo_BackendFrontend",
+              "RelativeToolTip": "SJFCode\\SJFChatGPT\\Diagrama_Flujo_BackendFrontend",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-22T14:11:07.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Backend.py",
               "DocumentMoniker": "C:\\Users\\nahom\\Downloads\\SJF-Python\\SJFCode\\SJFPerplexity\\Backend.py",
               "RelativeDocumentMoniker": "SJFCode\\SJFPerplexity\\Backend.py",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BackendFronted.py",
               "DocumentMoniker": "C:\\Users\\nahom\\Downloads\\SJF-Python\\SJFCode\\SJFChatGPT\\BackendFronted.py",
               "RelativeDocumentMoniker": "SJFCode\\SJFChatGPT\\BackendFronted.py",
@@ -43,8 +60,7 @@
               "RelativeToolTip": "SJFCode\\SJFChatGPT\\BackendFronted.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2024-11-20T21:55:47.606Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T21:55:47.606Z"
             }
           ]
         }
