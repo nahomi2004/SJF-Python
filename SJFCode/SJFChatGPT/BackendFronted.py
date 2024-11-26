@@ -11,7 +11,7 @@ import random
 import time
 # simular una pausa durante la ejecución de procesos
 
-# 
+# Trabajo con diccionario que representa a un proceso
 def fifo_scheduling(processes):
     # Organiza los procesos por tiempo de llegada (FIFO)
     processes.sort(key=lambda x: x['arrival']) 
@@ -39,7 +39,7 @@ def fifo_scheduling(processes):
 
 def sjf_scheduling(processes):
     # organiza los procesos por tiempo de llegada y selecciona el de menor duración para ejecutar primero
-    process = min(available, key=lambda x: (x['burst'], x['arrival']))
+    processes.sort(key=lambda x: (x['arrival'], x['burst']))
     # Reloj del sistema, comienza en 0
     current_time = 0 
     # Lista para almacenar los procesos ejecutados con sus tiempos calculados

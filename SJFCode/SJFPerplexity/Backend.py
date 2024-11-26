@@ -22,6 +22,8 @@ def generar_procesos(num_procesos):
 
 def planificar_fifo(procesos):
     # Planifica los procesos utilizando la política FIFO
+    # Ordenar los procesos por tiempo de llegada
+    procesos.sort(key=lambda x: x.tiempo_llegada)
     tiempo_actual = 0
     for proceso in procesos:
         if tiempo_actual < proceso.tiempo_llegada:
